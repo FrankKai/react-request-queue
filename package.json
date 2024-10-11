@@ -1,0 +1,43 @@
+{
+  "name": "react-request-queue",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "files": [
+    "src/**",
+    "dist/**",
+    "package.json",
+    "tsconfig.json"
+  ],
+  "maintainers": [
+    {
+      "name": "FrankKai",
+      "email": "gaokai20100801@gmai.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrankKai/react-request-queue.git"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
+    "pretest": "npm run build",
+    "alpha": "npm version prerelease --preid=alpha && yarn build && npm publish --tag=alpha",
+    "beta": "npm version prerelease --preid=beta && yarn build && npm publish --tag=beta",
+    "patch": "npm version patch",
+    "patch:publish": "yarn patch && yarn build && npm publish",
+    "minor": "npm version minor",
+    "major": "npm version major"
+  },
+  "author": "FrankKai",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^18.3.11",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "react": "^18.3.1"
+  }
+}
