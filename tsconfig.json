@@ -22,6 +22,7 @@
     "strict": false,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
-    "sourceMap": true
+    "sourceMap": true,
+    "skipLibCheck": true,
   }
 }
