@@ -8,7 +8,7 @@ const useRequestQueue = (
   dependencies: any[]
 ) => {
   const isRequestInProgress = useRef(false);
-  const requestQueue = useRef<{ paginationData: RequestParams }[]>([]);
+  const requestQueue = useRef<{ params: RequestParams }[]>([]);
 
   const processQueue = async () => {
     if (requestQueue.current.length === 0 || isRequestInProgress.current) {
@@ -16,10 +16,10 @@ const useRequestQueue = (
     }
 
     isRequestInProgress.current = true;
-    const { paginationData } = requestQueue.current.shift();
+    const { params } = requestQueue.current.shift();
 
     try {
-      await requestFunction(paginationData);
+      await requestFunction(params);
     } catch (error) {
       console.error("Error processing request:", error);
     } finally {
@@ -32,8 +32,8 @@ const useRequestQueue = (
     processQueue();
   }, dependencies);
 
-  const addToQueue = (paginationData: RequestParams) => {
-    requestQueue.current.push({ paginationData });
+  const addToQueue = (params: RequestParams) => {
+    requestQueue.current.push({ params });
     processQueue();
   };
 
