@@ -1,3 +1,5 @@
+[中文简体](./README-zh.md)
+
 # react-request-queue
 
 A React hook to manage request queues, ensuring that only one request is processed at a time to avoid inconsistent results due to asynchronous issues.
@@ -76,4 +78,3 @@ export default MyComponent;
 ## License
 
 MIT
-```
