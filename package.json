@@ -24,10 +24,10 @@
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "pretest": "npm run build",
-    "alpha": "npm version prerelease --preid=alpha && yarn build && npm publish --tag=alpha",
-    "beta": "npm version prerelease --preid=beta && yarn build && npm publish --tag=beta",
+    "alpha": "npm version prerelease --preid=alpha && npm run build && npm publish --tag=alpha",
+    "beta": "npm version prerelease --preid=beta && npm run build && npm publish --tag=beta",
     "patch": "npm version patch",
-    "patch:publish": "yarn patch && yarn build && npm publish",
+    "patch:publish": "npm run patch && npm run build && npm publish",
     "minor": "npm version minor",
     "major": "npm version major"
   },
